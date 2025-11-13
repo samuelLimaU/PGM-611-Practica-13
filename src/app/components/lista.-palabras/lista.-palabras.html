@@ -1,0 +1,29 @@
+<div>
+  <div *ngIf="palabras.length === 0" class="alert alert-info text-center">
+    No hay palabras agregadas.
+  </div>
+
+  <table *ngIf="palabras.length > 0" class="tabla-palabras">
+    <thead class="table-dark">
+      <tr>
+        <th class="text-center" style="width: 60px;">#</th>
+        <th>Palabra</th>
+        <th class="text-center" style="width: 180px;">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let palabra of palabras; let i = index">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td>{{ palabra }}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-primary me-2" (click)="onEditar(i)">
+            Editar
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="onEliminar(i)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
